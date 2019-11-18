@@ -41,10 +41,16 @@ describe('City', () => {
     let randomIndex = oregon.randomContamination();
     expect(oregon.cities[randomIndex].contamination).toEqual(1);
   });
-  // test('should get very hungry if 10 seconds pass without feeding', function() {
-  //   jest.advanceTimersByTime(10001);
-  //   expect(fuzzy.didYouGetEaten()).toEqual(true);
-  // });
+
+  test('should contaminate nearby city when contamination > 0', function() {
+    let randomIndex = oregon.randomContamination();
+    oregon.infectOther();
+    jest.advanceTimersByTime(20001);
+    console.log("Random index - 1",(randomIndex - 1));
+    console.log("array of cities: ", oregon.cities);
+
+    expect(oregon.cities[randomIndex - 1].contamination).toEqual(1);
+  });
   //
   // test('should have a food level of ten if it is fed', function() {
   //   jest.advanceTimersByTime(9001);

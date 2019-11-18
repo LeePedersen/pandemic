@@ -8,7 +8,6 @@ export class State {
   addCities() {
     for (let i = 0; i < 25; i++) {
     let city = new City(i);
-    // let string = "id";
     this.cities.push(city);
     // this.cities[`${string}`] = city;
     }
@@ -16,17 +15,31 @@ export class State {
 
   randomContamination() {
     let randomCity = Math.floor((Math.random() * (25 - 0)));
-    // console.log("LOG: randomCity",randomCity);
     this.cities[randomCity].contamination +=1;
     return randomCity;
   }
 
   infectOther() {
-    if (this.cities.contamination > 9) {
-      return true;
-    } else {
-      return false;
-    }
+    setInterval(() => {
+      let contaminatedArray = [];
+      let contaminatedIndex = [];
+      for (let i = 0; i < 25; i++) {
+        if (this.cities[i].contamination > 0) {
+          contaminatedArray.push(this.cities[i]);
+          contaminatedIndex.push(i);
+
+        }
+      }
+      contaminatedArray.forEach((city, index) => {
+        if (city.contamination > 0 && index < 24) {
+          city.contamination++;
+          this.cities[contaminatedIndex[index] + 1].contamination++;
+          this.cities[contaminatedIndex[index] - 1].contamination++;
+        } else {
+          console.log("something's broken");
+        }
+      });
+    }, 10000);
   }
 
 
@@ -49,6 +62,3 @@ export class City {
 
 
 }
-
-
-// let oregon = new State();
