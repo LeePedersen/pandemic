@@ -6,7 +6,7 @@
   width: 17vw;
   border-style: inset;
   border-width: 1px;
-  border-color: #91bf95;
+  border-color: #bf400a;
 }
 
 body {
@@ -18,7 +18,7 @@ body {
 span {
   position: absolute;
   margin-left: 10px;
-  color: #91bf95;
+  color: #bf400a;
   background-color:rgba(0,0,0,0.7);
   border: 10px;
   border-radius: 50%;
@@ -58,5 +58,10 @@ td {
   /* position: sticky; */
   top: 100px;
   left: 100px;
+}
 
+.instructions {
+  font-size: 18px;
+  padding-left: 30px;
+  padding-right: 15px;
 }

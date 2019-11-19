@@ -55,15 +55,13 @@ export class World {
           city.contamination++;
           this.cities[contaminatedIndex[index] - 1].contamination++;
           this.cities[contaminatedIndex[index] - 5].contamination++;
-        } else {
-          console.log("you got a 1 or a 24");
         }
       });
     }, 10000);
   }
 
   treat(id) {
-    this.cities[id].contamination -= 5;
+    this.cities[id].contamination -= 3;
   }
 
   score() {
@@ -104,11 +102,9 @@ export class City {
 
   vaccinate() {
     if (this.contamination < 1) {
-      this.contamination = -10;
+      this.contamination = -15;
     } else if (this.contamination > 0) {
-      this.contamination -= 2;
-    } else {
-      console.log("bad vaccination...");
+      this.contamination -= 1;
     }
   }
 

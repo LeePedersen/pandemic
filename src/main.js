@@ -2,7 +2,7 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
-import { City } from "./backend.js";
+// import { City } from "./backend.js";
 import { World } from "./backend.js";
 
 //
@@ -21,17 +21,18 @@ $(document).ready(function(){
     let earth = new World();
     earth.addCities();
     earth.randomContamination();
+    earth.randomContamination();
     earth.infectOther();
     let method;
 
     setTimeout(() => {
-      $("#vaccinate").slideDown(1000);
-      $("#treat").slideDown(2000);
-    }, 10000)
+      $(".instructions").fadeOut(500);
+      $("#vaccinate").slideDown(500);
+    }, 7500);
 
-    setInterval(() => {
-      console.log(earth);
-    }, 10001)
+    setTimeout(() => {
+      $("#treat").slideDown(500);
+    }, 15000);
 
     setInterval(() => {
       for (let i = 0; i < 25; i++) {
@@ -41,35 +42,32 @@ $(document).ready(function(){
           $(".contamination" + i).text(earth.cities[i].contamination);
         }
       }
-    }, 100)
+    }, 100);
 
 
     setInterval(() => {
 
-        for (let i = 0; i < 25; i++) {
-          if (earth.cities[i].contamination > 9) {
-            // let id = $(this).attr('id');
-            $("#"+i).addClass("infected3")
-          } else if (earth.cities[i].contamination > 5) {
-            $("#"+i).addClass("infected2")
-          } else if (earth.cities[i].contamination > 1) {
-            $("#"+i).addClass("infected1")
-          }
-          else {
-            $("#"+i).removeClass("infected3 infected2 infected1")
-          }
+      for (let i = 0; i < 25; i++) {
+        if (earth.cities[i].contamination > 9) {
+          // let id = $(this).attr('id');
+          $("#"+i).addClass("infected3");
+        } else if (earth.cities[i].contamination > 5) {
+          $("#"+i).addClass("infected2");
+        } else if (earth.cities[i].contamination > 1) {
+          $("#"+i).addClass("infected1");
         }
-    }, 101)
-
-
-
+        else {
+          $("#"+i).removeClass("infected3 infected2 infected1");
+        }
+      }
+    }, 101);
 
 
     setInterval(() => {
       if (earth.results()) {
         $("#results").text(earth.results());
       }
-    })
+    });
 
     $("#vaccinate").click(function() {
       method = "vaccinate";
