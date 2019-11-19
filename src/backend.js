@@ -1,4 +1,4 @@
-export class State {
+export class World {
 
   constructor() {
     this.cities = [];
@@ -62,6 +62,28 @@ export class State {
     }, 10000);
   }
 
+  treat(id) {
+    this.cities[id].contamination -= 5;
+  }
+
+  score() {
+    let score = 0;
+    for (let i = 0; i < 25; i++) {
+      score += this.cities[i].contamination;
+    }
+    return score;
+  }
+
+  results() {
+    let score = this.score();
+    if (score < 0) {
+      return "win";
+    } else if (score > 250) {
+      return "lose";
+    } else {
+      console.log("still playing");
+    }
+  }
 
 }
 
@@ -79,6 +101,17 @@ export class City {
       this.contamination++;
     }, 10000);
   }
+
+  vaccinate() {
+    if (this.contamination < 1) {
+      this.contamination = -10;
+    } else if (this.contamination > 0) {
+      this.contamination -= 2;
+    } else {
+      console.log("bad vaccination...");
+    }
+  }
+
 
 
 }

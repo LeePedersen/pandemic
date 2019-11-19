@@ -3,7 +3,7 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 import { City } from "./backend.js";
-import { State } from "./backend.js";
+import { World } from "./backend.js";
 
 //
 // let oregon = new State();
@@ -12,3 +12,69 @@ import { State } from "./backend.js";
 //   let ("city" + i) = new City(i);
 //   oregon.cities.push("city" + i);
 // }
+
+
+
+$(document).ready(function(){
+  $("#startGame").click(function(){
+
+    let earth = new World();
+    earth.addCities();
+    earth.randomContamination();
+    earth.infectOther();
+    let method;
+
+    setInterval(() => {
+      console.log(earth);
+    }, 10001)
+
+    setInterval(() => {
+      for (let i = 0; i < 25; i++) {
+        if (earth.cities[i].contamination < 0) {
+          $(".contamination" + i).text("0");
+        } else {
+          $(".contamination" + i).text(earth.cities[i].contamination);
+        }
+      }
+    }, 100)
+
+    setInterval(() => {
+      if (earth.results()) {
+        $("#results").text(earth.results());
+      }
+    })
+
+    $("#vaccinate").click(function() {
+      method = "vaccinate";
+      $("#treat").removeClass("btn-success");
+      $("#treat").addClass("btn-secondary");
+      $("#vaccinate").removeClass("btn-secondary");
+      $("#vaccinate").addClass("btn-success");
+    });
+
+    $("#treat").click(function() {
+      method = "treat";
+      $("#vaccinate").removeClass("btn-success");
+      $("#vaccinate").addClass("btn-secondary");
+      $("#treat").removeClass("btn-secondary");
+      $("#treat").addClass("btn-success");
+
+    });
+
+    $("td").click(function(){
+      if (method === "vaccinate") {
+        let id = $(this).attr('id');
+        earth.cities[id].vaccinate();
+
+      } else if (method === "treat") {
+        let id = $(this).attr('id');
+        earth.treat(id);
+      }
+
+      // $(this).children().children('.textA').slideToggle();
+      // $(this).children().children('.textB').slideToggle();
+      // $(this).children().toggleClass("flipped");
+    });
+
+  });
+});

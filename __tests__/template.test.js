@@ -1,5 +1,5 @@
 
-import { State } from './../src/backend.js';
+import { World } from './../src/backend.js';
 import { City } from './../src/backend.js';
 
 describe('City', () => {
@@ -9,7 +9,7 @@ describe('City', () => {
 
 
   beforeEach(function() {
-    oregon = new State();
+    oregon = new World();
     oregon.addCities();
     // portland = new City(0);
     // portland.setContamination();
@@ -46,16 +46,23 @@ describe('City', () => {
     let randomIndex = oregon.randomContamination();
     oregon.infectOther();
     jest.advanceTimersByTime(10001);
-    console.log("Random index: ",(randomIndex));
-    console.log("array of cities: ", oregon.cities);
 
     expect(oregon.cities[randomIndex - 1].contamination).toEqual(1);
   });
-  //
-  // test('should have a food level of ten if it is fed', function() {
-  //   jest.advanceTimersByTime(9001);
-  //   fuzzy.feed();
-  //   expect(fuzzy.foodLevel).toEqual(10);
-  // });
+
+  test('should have a contamination level of -1 if it is vaccinated', function() {
+    let randomIndex = oregon.randomContamination();
+    oregon.cities[randomIndex].vaccinate();
+    expect(oregon.cities[randomIndex].contamination).toEqual(-1);
+  });
+
+  test('should have a contamination level of -4 if it is treated', function() {
+    let randomIndex = oregon.randomContamination();
+    oregon.treat(randomIndex);
+    console.log("array of cities: ", oregon.cities);
+    console.log("Random index: ",(randomIndex));
+
+    expect(oregon.cities[randomIndex].contamination).toEqual(-4);
+  });
 
 });

@@ -1,0 +1,32 @@
+#worldMap td{
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+  height: 17vh;
+  width: 17vw;
+  border-style: inset;
+  border-width: 1px;
+  border-color: #91bf95;
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-size: 25px;
+}
+
+span {
+  position: absolute;
+  margin-left: 10px;
+  color: #91bf95;
+  background-color:rgba(0,0,0,0.7);
+  border: 10px;
+  border-radius: 50%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.btn {
+  margin-left: 30px;
+  margin-top: 40px;
+}
