@@ -7,8 +7,8 @@ export class State {
 
   addCities() {
     for (let i = 0; i < 25; i++) {
-    let city = new City(i);
-    this.cities.push(city);
+      let city = new City(i);
+      this.cities.push(city);
     // this.cities[`${string}`] = city;
     }
   }
@@ -31,12 +31,32 @@ export class State {
         }
       }
       contaminatedArray.forEach((city, index) => {
-        if (city.contamination > 0 && index < 24) {
+        if (contaminatedArray[index].id < 19 && contaminatedArray[index].id > 4) {
           city.contamination++;
           this.cities[contaminatedIndex[index] + 1].contamination++;
           this.cities[contaminatedIndex[index] - 1].contamination++;
+          this.cities[contaminatedIndex[index] + 5].contamination++;
+          this.cities[contaminatedIndex[index] - 5].contamination++;
+        } else if (contaminatedArray[index].id < 24 && contaminatedArray[index].id > 4) {
+          city.contamination++;
+          this.cities[contaminatedIndex[index] + 1].contamination++;
+          this.cities[contaminatedIndex[index] - 1].contamination++;
+          this.cities[contaminatedIndex[index] - 5].contamination++;
+        } else if (contaminatedArray[index].id < 4 && contaminatedArray[index].id > 0) {
+          city.contamination++;
+          this.cities[contaminatedIndex[index] + 1].contamination++;
+          this.cities[contaminatedIndex[index] - 1].contamination++;
+          this.cities[contaminatedIndex[index] + 5].contamination++;
+        } else if (contaminatedArray[index].id === 0) {
+          city.contamination++;
+          this.cities[contaminatedIndex[index] + 1].contamination++;
+          this.cities[contaminatedIndex[index] + 5].contamination++;
+        } else if (contaminatedArray[index].id === 24){
+          city.contamination++;
+          this.cities[contaminatedIndex[index] - 1].contamination++;
+          this.cities[contaminatedIndex[index] - 5].contamination++;
         } else {
-          console.log("something's broken");
+          console.log("you got a 1 or a 24");
         }
       });
     }, 10000);

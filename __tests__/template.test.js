@@ -45,8 +45,8 @@ describe('City', () => {
   test('should contaminate nearby city when contamination > 0', function() {
     let randomIndex = oregon.randomContamination();
     oregon.infectOther();
-    jest.advanceTimersByTime(20001);
-    console.log("Random index - 1",(randomIndex - 1));
+    jest.advanceTimersByTime(10001);
+    console.log("Random index: ",(randomIndex));
     console.log("array of cities: ", oregon.cities);
 
     expect(oregon.cities[randomIndex - 1].contamination).toEqual(1);
