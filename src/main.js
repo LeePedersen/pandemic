@@ -24,6 +24,11 @@ $(document).ready(function(){
     earth.infectOther();
     let method;
 
+    setTimeout(() => {
+      $("#vaccinate").slideDown(1000);
+      $("#treat").slideDown(2000);
+    }, 10000)
+
     setInterval(() => {
       console.log(earth);
     }, 10001)
@@ -37,6 +42,28 @@ $(document).ready(function(){
         }
       }
     }, 100)
+
+
+    setInterval(() => {
+
+        for (let i = 0; i < 25; i++) {
+          if (earth.cities[i].contamination > 9) {
+            // let id = $(this).attr('id');
+            $("#"+i).addClass("infected3")
+          } else if (earth.cities[i].contamination > 5) {
+            $("#"+i).addClass("infected2")
+          } else if (earth.cities[i].contamination > 1) {
+            $("#"+i).addClass("infected1")
+          }
+          else {
+            $("#"+i).removeClass("infected3 infected2 infected1")
+          }
+        }
+    }, 101)
+
+
+
+
 
     setInterval(() => {
       if (earth.results()) {

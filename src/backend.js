@@ -69,19 +69,19 @@ export class World {
   score() {
     let score = 0;
     for (let i = 0; i < 25; i++) {
-      score += this.cities[i].contamination;
+      if (this.cities[i].contamination > 0) {
+        score += this.cities[i].contamination;
+      }
     }
     return score;
   }
 
   results() {
     let score = this.score();
-    if (score < 0) {
-      return "win";
+    if (score <= 0) {
+      return "You cured the planet";
     } else if (score > 250) {
-      return "lose";
-    } else {
-      console.log("still playing");
+      return "Everyone's dead";
     }
   }
 

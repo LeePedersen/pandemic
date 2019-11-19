@@ -6,6 +6,7 @@
 </head>
 <body>
 
+
   <div class="row">
 
     <div class="col-md-2">
@@ -14,9 +15,6 @@
       <button id="vaccinate" class="btn btn-secondary" type="button" name="button">Vaccinate</button>
       <br>
       <button id="treat" class="btn btn-secondary" type="button" name="button">Treat</button>
-      <div>
-        <p id="results"></p>
-      </div>
     </div>
 
     <div class="col-md-10">
@@ -107,12 +105,15 @@
     		<td id="24">
           <span class="contamination24"></span>
           <img src="https://raw.githubusercontent.com/nhhor/pandemic/master/src/img/worldmap_24.jpg" width="100%" height="100%" alt=""></td>
-    	</tr>
-    </table>
+      	</tr>
+      </table>
+    </div>
+
   </div>
 
-</div>
-
+  <div id="showResults">
+    <p id="results"></p>
+  </div>
 
   </body>
 </html>
