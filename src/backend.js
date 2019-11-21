@@ -61,7 +61,9 @@ export class World {
   }
 
   treat(id) {
-    this.cities[id].contamination -= 3;
+    if (this.cities[i].contamination > 0) {
+      this.cities[id].contamination -= 3;
+    }
   }
 
   score() {

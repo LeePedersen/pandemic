@@ -27,11 +27,14 @@ $(document).ready(function(){
 
     setTimeout(() => {
       $(".instructions").fadeOut(500);
-      $("#vaccinate").slideDown(500);
-    }, 7500);
+    }, 8500);
 
     setTimeout(() => {
-      $("#treat").slideDown(500);
+      $("#vaccinate").show();
+    }, 9000);
+
+    setTimeout(() => {
+      $("#treat").show();
     }, 15000);
 
     setInterval(() => {
