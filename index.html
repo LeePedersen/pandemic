@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+
+
+  <div class="row">
+
+    <div class="col-md-2">
+      <button id="startGame" class="btn btn-danger btn-lg" type="button" name="button">Start Game</button>
+      <br>
+      <div class="instructions">
+          <p>The world is experiencing a pandemic, we need your help to save us!</p>
+          <p>Scientists are working on a vaccination and treatment but it takes time. (You must select the appropriate treatment by clicking on it first.)</p>
+          <ul>
+            <li>The vaccination will be ready first. Keep in mind, vaccinations are most effective <strong>before</strong> an area is affected.</li>
+            <li>Soon a treatment will be available too, use it wisely...</li>
+          </ul>
+      </div>
+      <button id="vaccinate" class="btn btn-secondary" type="button" name="button">Vaccinate</button>
+      <br>
+      <button id="treat" class="btn btn-secondary" type="button" name="button">Treat</button>
+    </div>
+
+    <div class="col-md-10">
+
+      <table id="worldMap">
+    	<tr>
+    		<td id="0">
+          <span class="contamination0"></span>
+          <img src="https://raw.githubusercontent.com/nhhor/pandemic/master/src/img/worldmap_00.jpg" width="100%" height="100%" alt=""></td>
+    		<td id="1">
+          <span class="contamination1"></span>
+          <img src="https://raw.githubusercontent.com/nhhor/pandemic/master/src/img/worldmap_01.jpg" width="100%" height="100%" alt=""></td>
+    		<td id="2">
+          <span class="contamination2"></span>
+          <img src="https://raw.githubusercontent.com/nhhor/pandemic/master/src/img/worldmap_02.jpg" width="100%" height="100%" alt=""></td>
+    		<td id="3">
+          <span class="contamination3"></span>
+          <img src="https://raw.githubusercontent.com/nhhor/pandemic/master/src/img/worldmap_03.jpg" width="100%" height="100%" alt=""></td>
+    		<td id="4">
+          <span class="contamination4"></span>
+          <img src="https://raw.githubusercontent.com/nhhor/pandemic/master/src/img/worldmap_04.jpg" width="100%" height="100%" alt=""></td>
+    	</tr>
+    	<tr>
+    		<td id="5">
+          <span class="contamination5"></span>
+          <img src="https://raw.githubusercontent.com/nhhor/pandemic/master/src/img/worldmap_05.jpg" width="100%" height="100%" alt=""></td>
+    		<td id="6">
+          <span class="contamination6"></span>
+          <img src="https://raw.githubusercontent.com/nhhor/pandemic/master/src/img/worldmap_06.jpg" width="100%" height="100%" alt=""></td>
+    		<td id="7">
+          <span class="contamination7"></span>
+          <img src="https://raw.githubusercontent.com/nhhor/pandemic/master/src/img/worldmap_07.jpg" width="100%" height="100%" alt=""></td>
+    		<td id="8">
+          <span class="contamination8"></span>
+          <img src="https://raw.githubusercontent.com/nhhor/pandemic/master/src/img/worldmap_08.jpg" width="100%" height="100%" alt=""></td>
+    		<td id="9">
+          <span class="contamination9"></span>
+          <img src="https://raw.githubusercontent.com/nhhor/pandemic/master/src/img/worldmap_09.jpg" width="100%" height="100%" alt=""></td>
+    	</tr>
+    	<tr>
+    		<td id="10">
+          <span class="contamination10"></span>
+          <img src="https://raw.githubusercontent.com/nhhor/pandemic/master/src/img/worldmap_10.jpg" width="100%" height="100%" alt=""></td>
+    		<td id="11">
+          <span class="contamination11"></span>
+          <img src="https://raw.githubusercontent.com/nhhor/pandemic/master/src/img/worldmap_11.jpg" width="100%" height="100%" alt=""></td>
+    		<td id="12">
+          <span class="contamination12"></span>
+          <img src="https://raw.githubusercontent.com/nhhor/pandemic/master/src/img/worldmap_12.jpg" width="100%" height="100%" alt=""></td>
+    		<td id="13">
+          <span class="contamination13"></span>
+          <img src="https://raw.githubusercontent.com/nhhor/pandemic/master/src/img/worldmap_13.jpg" width="100%" height="100%" alt=""></td>
+    		<td id="14">
+          <span class="contamination14"></span>
+          <img src="https://raw.githubusercontent.com/nhhor/pandemic/master/src/img/worldmap_14.jpg" width="100%" height="100%" alt=""></td>
+    	</tr>
+    	<tr>
+    		<td id="15">
+          <span class="contamination15"></span>
+          <img src="https://raw.githubusercontent.com/nhhor/pandemic/master/src/img/worldmap_15.jpg" width="100%" height="100%" alt=""></td>
+    		<td id="16">
+          <span class="contamination16"></span>
+          <img src="https://raw.githubusercontent.com/nhhor/pandemic/master/src/img/worldmap_16.jpg" width="100%" height="100%" alt=""></td>
+    		<td id="17">
+          <span class="contamination17"></span>
+          <img src="https://raw.githubusercontent.com/nhhor/pandemic/master/src/img/worldmap_17.jpg" width="100%" height="100%" alt=""></td>
+    		<td id="18">
+          <span class="contamination18"></span>
+          <img src="https://raw.githubusercontent.com/nhhor/pandemic/master/src/img/worldmap_18.jpg" width="100%" height="100%" alt=""></td>
+    		<td id="19">
+          <span class="contamination19"></span>
+          <img src="https://raw.githubusercontent.com/nhhor/pandemic/master/src/img/worldmap_19.jpg" width="100%" height="100%" alt=""></td>
+
+    	</tr>
+    	<tr>
+    		<td id="20">
+          <span class="contamination20"></span>
+          <img src="https://raw.githubusercontent.com/nhhor/pandemic/master/src/img/worldmap_20.jpg" width="100%" height="100%" alt=""></td>
+    		<td id="21">
+          <span class="contamination21"></span>
+          <img src="https://raw.githubusercontent.com/nhhor/pandemic/master/src/img/worldmap_21.jpg" width="100%" height="100%" alt=""></td>
+    		<td id="22">
+          <span class="contamination22"></span>
+          <img src="https://raw.githubusercontent.com/nhhor/pandemic/master/src/img/worldmap_22.jpg" width="100%" height="100%" alt=""></td>
+    		<td id="23">
+          <span class="contamination23"></span>
+          <img src="https://raw.githubusercontent.com/nhhor/pandemic/master/src/img/worldmap_23.jpg" width="100%" height="100%" alt=""></td>
+    		<td id="24">
+          <span class="contamination24"></span>
+          <img src="https://raw.githubusercontent.com/nhhor/pandemic/master/src/img/worldmap_24.jpg" width="100%" height="100%" alt=""></td>
+      	</tr>
+      </table>
+    </div>
+
+  </div>
+
+  <div id="showResults">
+    <p id="results"></p>
+  </div>
+
+  <script type="text/javascript" src="bundle.js"></script></body>
+</html>
