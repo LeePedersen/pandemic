@@ -27,15 +27,15 @@ $(document).ready(function(){
 
     setTimeout(() => {
       $(".instructions").fadeOut(500);
-    }, 8500);
+    }, 6500);
 
     setTimeout(() => {
       $("#vaccinate").show();
-    }, 9000);
+    }, 7000);
 
     setTimeout(() => {
       $("#treat").show();
-    }, 15000);
+    }, 20000);
 
     setInterval(() => {
       for (let i = 0; i < 25; i++) {
@@ -96,12 +96,9 @@ $(document).ready(function(){
 
       } else if (method === "treat") {
         let id = $(this).attr('id');
-        earth.treat(id);
+        earth.cities[id].treat();
       }
 
-      // $(this).children().children('.textA').slideToggle();
-      // $(this).children().children('.textB').slideToggle();
-      // $(this).children().toggleClass("flipped");
     });
 
   });

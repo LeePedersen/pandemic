@@ -1,4 +1,4 @@
-#worldMap td{
+#worldMap td {
   border: 0px;
   padding: 0px;
   margin: 0px;
@@ -61,7 +61,7 @@ td {
 }
 
 .instructions {
-  font-size: 18px;
+  font-size: 16px;
   padding-left: 30px;
-  padding-right: 15px;
+  padding-top: 30px;
 }

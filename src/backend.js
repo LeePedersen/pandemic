@@ -9,7 +9,6 @@ export class World {
     for (let i = 0; i < 25; i++) {
       let city = new City(i);
       this.cities.push(city);
-    // this.cities[`${string}`] = city;
     }
   }
 
@@ -57,13 +56,7 @@ export class World {
           this.cities[contaminatedIndex[index] - 5].contamination++;
         }
       });
-    }, 10000);
-  }
-
-  treat(id) {
-    if (this.cities[id].contamination > 0) {
-      this.cities[id].contamination -= 3;
-    }
+    }, 5000);
   }
 
   score() {
@@ -87,8 +80,6 @@ export class World {
 
 }
 
-
-
 export class City {
 
   constructor(i) {
@@ -104,12 +95,18 @@ export class City {
 
   vaccinate() {
     if (this.contamination < 1) {
-      this.contamination = -15;
+      this.contamination = -10;
     } else if (this.contamination > 0) {
       this.contamination -= 1;
     }
   }
 
-
+  treat() {
+    if (this.contamination > 5) {
+      this.contamination -= 5;
+    } else if (this.contamination > 0) {
+      this.contamination = 0;
+    }
+  }
 
 }
